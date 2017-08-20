@@ -1,7 +1,4 @@
-
 function TTFs
-
-addpath(genpath('E:\spm8&TTFs'));
 
 img_Path = spm_select;
 [img_Loc, ~, ~] = fileparts(img_Path(1,:));
@@ -22,14 +19,22 @@ spmSegment('nii_for_seg.img');
 postSegment(img_Loc);
 
 % Generates and places electrodes on the surface of the scalp
-TTF = fullfile(spm('Dir'),'tpm','TTF.nii');
+TTF = fullfile(spm('Dir'),'toolbox/tpms','TTF.nii'); % TTField transducer seed coordinates
 electrodeGeneration('mask_scalp.img', TTF, 'iy_nii_for_seg.nii');
 
 % Generates a python script for ScanIP import and smoothing
-pyScanIPScript(img_Info, img_Loc);
- 
+% if uncommented, this would generate a python script that will
+% automated mask import and postprocessing in ScanIP
+%
+% pyScanIPScript(img_Info, img_Loc);
+
+
 % Optional step for bat script generation/automated ScanIP import
-ScanIP_Loc = 'E:\Program Files\Simpleware\ScanIP';
-batScript(img_Loc, ScanIP_Loc);
+% useful for Windows if using ScanIP. Generates a batch script for
+% and calls it to initiate ScanIP and the import script in the last
+% step
+%
+% ScanIP_Loc = 'C:\Program Files\Simpleware\ScanIP';
+% batScript(img_Loc, ScanIP_Loc);
 
 end
