@@ -1,0 +1,222 @@
+from scanip_api import *
+
+App.GetInstance().ImportRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.UnsignedCharPixel, 
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetInstance().GetActiveDocument().ImportBackgroundFromRawImage(
+
+, ImportOptions.FloatPixel,  
+
+ImportOptions.BinaryFile, ImportOptions.LittleEndian, CommonImportConstraints().SetWindowLevel(0, 0).SetCrop(
+
+
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00]").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (2)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (3)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (4)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (5)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (6)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (7)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (8)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetBackgroundByName("Raw import  [W:0.00 L:0.00] (9)").Activate()
+App.GetDocument().GenerateMasksFromPresegmentedData(203, 255, App.GetDocument().GetSliceIndices(Doc.OrientationXY), Doc.OrientationXY)
+
+
+App.GetDocument().GetMaskByName("Mask 1").SetName("Elec")
+App.GetDocument().GetMaskByName("Mask 2").SetName("Gel")
+App.GetDocument().GetMaskByName("Mask 3").SetName("Scalp")
+App.GetDocument().GetMaskByName("Mask 4").SetName("Orbitals")
+App.GetDocument().GetMaskByName("Mask 5").SetName("Bone")
+App.GetDocument().GetMaskByName("Mask 6").SetName("CSF")
+App.GetDocument().GetMaskByName("Mask 7").SetName("Cerebellum")
+App.GetDocument().GetMaskByName("Mask 8").SetName("GM")
+App.GetDocument().GetMaskByName("Mask 9").SetName("WM")
+
+
+#WM smooth and fill
+App.GetDocument().GetMaskByName("WM").Activate()
+App.GetDocument().ApplyRecursiveGaussianFilter(Doc.TargetMask, True, Sigma(2, 2, 2))
+App.GetDocument().ApplyCavityFillFilter()
+App.GetDocument().ApplyIslandRemovalFilter(10000)
+
+App.GetDocument().GetActiveMask().Duplicate()
+App.GetDocument().GetMaskByName("Copy of WM").Activate()
+App.GetDocument().ApplyDilateFilter(Doc.TargetMask, 1, 1, 1, 0.5)
+App.GetDocument().GetMaskByName("GM").Activate()
+App.GetDocument().GetActiveMask().UnionWith(App.GetDocument().GetMaskByName("Copy of WM"), App.GetDocument().GetSliceIndices (Doc.OrientationXY), Doc.OrientationXY)
+
+
+#GM and Cerebellum smooth and fill
+App.GetDocument().GetMaskByName("GM").Activate()
+App.GetDocument().ApplyRecursiveGaussianFilter(Doc.TargetMask, True, Sigma(2, 2, 2))
+App.GetDocument().ApplyCavityFillFilter()
+App.GetDocument().ApplyIslandRemovalFilter(10000)
+App.GetDocument().GetMaskByName("Cerebellum").Activate()
+App.GetDocument().ApplyRecursiveGaussianFilter(Doc.TargetMask, True, Sigma(2, 2, 2))
+App.GetDocument().ApplyCavityFillFilter()
+App.GetDocument().ApplyIslandRemovalFilter(10000)
+
+
+#CSF merge with Cerebellum and GM
+App.GetDocument().GetMaskByName("GM").Activate()
+App.GetDocument().GetActiveMask().Duplicate()
+App.GetDocument().GetMaskByName("Copy of GM").Activate()
+App.GetDocument().ApplyDilateFilter(Doc.TargetMask, 2, 2, 2, 0.5)
+App.GetDocument().GetMaskByName("Cerebellum").Activate()
+App.GetDocument().GetActiveMask().Duplicate()
+App.GetDocument().GetMaskByName("Copy of Cerebellum").Activate()
+App.GetDocument().ApplyDilateFilter(Doc.TargetMask, 2, 2, 2, 0.5)
+App.GetDocument().GetActiveMask().UnionWith(App.GetDocument().GetMaskByName("Copy of GM"), App.GetDocument().GetSliceIndices (Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().GetMaskByName("CSF").Activate()
+App.GetDocument().GetActiveMask().UnionWith(App.GetDocument().GetMaskByName("Copy of Cerebellum"), App.GetDocument().GetSliceIndices (Doc.OrientationXY), Doc.OrientationXY)
+
+
+#CSF smooth and fill
+App.GetDocument().ApplyRecursiveGaussianFilter(Doc.TargetMask, True, Sigma(2, 2, 2))
+App.GetDocument().ApplyCavityFillFilter()
+App.GetDocument().ApplyIslandRemovalFilter(10000)
+App.GetDocument().ApplyCloseFilter(Doc.TargetMask, 2, 2, 2, 0.5)
+App.GetDocument().GetActiveMask().Duplicate()
+
+
+#Create Dura using the "Copy of CSF" (removed for now)
+App.GetDocument().GetMaskByName("Copy of CSF").SetName("Dura")
+App.GetDocument().GetMaskByName("Dura").Activate()
+App.GetDocument().ApplyDilateFilter(Doc.TargetMask, 2, 2, 2, 0.5)
+App.GetDocument().GetActiveMask().Duplicate()
+App.GetDocument().GetMaskByName("Copy of Dura").Activate()
+App.GetDocument().ApplyDilateFilter(Doc.TargetMask, 3, 3, 3, 0.5)
+
+
+#Bone merge with Dura, CSF, WM, GM, smooth and fill Copy of Dura changed to Copy of CSF
+App.GetDocument().GetMaskByName("Bone").Activate()
+App.GetDocument().GetActiveMask().UnionWith(App.GetDocument().GetMaskByName("Copy of Dura"), App.GetDocument().GetSliceIndices (Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().ApplyRecursiveGaussianFilter(Doc.TargetMask, True, Sigma(2, 2, 2))
+App.GetDocument().ApplyCavityFillFilter()
+App.GetDocument().ApplyIslandRemovalFilter(10000)
+App.GetDocument().ApplyCloseFilter(Doc.TargetMask, 2, 2, 2, 0.5)
+App.GetDocument().GetActiveMask().Duplicate()
+App.GetDocument().GetMaskByName("Copy of Bone").Activate()
+App.GetDocument().ApplyDilateFilter(Doc.TargetMask, 2, 2, 2, 0.5)
+
+
+#Scalp merge with Bone, smooth and fill
+App.GetDocument().GetMaskByName("Scalp").Activate()
+App.GetDocument().GetActiveMask().UnionWith(App.GetDocument().GetMaskByName("Copy of Bone"), App.GetDocument().GetSliceIndices (Doc.OrientationXY), Doc.OrientationXY)
+App.GetDocument().ApplyRecursiveGaussianFilter(Doc.TargetMask, True, Sigma(2, 2, 2))
+App.GetDocument().ApplyCavityFillFilter()
+App.GetDocument().ApplyIslandRemovalFilter(10000)
+
+
+#Orbitals merge with Scalp, smooth and fill
+App.GetDocument().GetMaskByName("Orbitals").Activate()
+App.GetDocument().ApplyCavityFillFilter()
+App.GetDocument().ApplyRecursiveGaussianFilter(Doc.TargetMask, True, Sigma(2, 2, 2))
+App.GetDocument().ApplyIslandRemovalFilter(10000)
+
+App.GetDocument().GetMaskByName("Copy of WM").Activate()
+App.GetDocument().RemoveMask(App.GetDocument().GetActiveMask())
+App.GetDocument().GetMaskByName("Copy of GM").Activate()
+App.GetDocument().RemoveMask(App.GetDocument().GetActiveMask())
+App.GetDocument().GetMaskByName("Copy of Cerebellum").Activate()
+App.GetDocument().RemoveMask(App.GetDocument().GetActiveMask())
+App.GetDocument().GetMaskByName("Copy of Dura").Activate()
+App.GetDocument().RemoveMask(App.GetDocument().GetActiveMask())
+App.GetDocument().GetMaskByName("Copy of Bone").Activate()
+App.GetDocument().RemoveMask(App.GetDocument().GetActiveMask())
+
+
+#Create the FE model and add the masks
+App.GetDocument().CreateFeModel()
+App.GetDocument().GetMaskByName("WM").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("WM"))
+App.GetDocument().GetMaskByName("GM").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("GM"))
+App.GetDocument().GetMaskByName("Cerebellum").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("Cerebellum"))
+App.GetDocument().GetMaskByName("CSF").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("CSF"))
+App.GetDocument().GetMaskByName("Dura").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("Dura"))
+App.GetDocument().GetMaskByName("Bone").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("Bone"))
+App.GetDocument().GetMaskByName("Orbitals").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("Orbitals"))
+App.GetDocument().GetMaskByName("Scalp").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("Scalp"))
+App.GetDocument().GetMaskByName("Gel").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("Gel"))
+App.GetDocument().GetMaskByName("Elec").Activate()
+App.GetDocument().GetModelByName("Model 1").AddMask(App.GetDocument().GetMaskByName("Elec"))
+
+App.GetDocument().SaveAs(
+
+)
