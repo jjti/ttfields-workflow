@@ -1,7 +1,10 @@
 # TTFields-Workflow
-Some MATLAB and python scripts for automating MRIs to FEA models for TTFields
+An SPM8 toolbox for automating MRIs to FEA models for TTFields
 
-### Dependencies
+## Optional function calls
+pyScanIPScript and batScript, uncommented, can be used to generate ScanIP post-processing and initialization scripts, respectively.
+
+## Dependencies
 Several dependencies are needed, and they have been included, but they are listed below along with their sources:
 
 ##### [Huang et al., 2013](http://bme.ccny.cuny.edu/faculty/lparra/autosegment/)
