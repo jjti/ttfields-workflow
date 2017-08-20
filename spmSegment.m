@@ -3,14 +3,14 @@ function spmSegment(nii_Img)
 n = [1 0];
 w = [0 0];
 
-WM = fullfile(spm('Dir'),'tpm','WM.nii');
-GM = fullfile(spm('Dir'),'tpm','GM.nii');
-CSF = fullfile(spm('Dir'),'tpm','CSF.nii');
-Cere = fullfile(spm('Dir'),'tpm','SUIT.nii');
-Bone = fullfile(spm('Dir'),'tpm','Bone.nii');
-Scalp = fullfile(spm('Dir'),'tpm','Scalp.nii');
-Orbitals = fullfile(spm('Dir'),'tpm','Orbitals.nii');
-Air = fullfile(spm('Dir'),'tpm','Air.nii');
+WM = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','WM.nii');
+GM = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','GM.nii');
+CSF = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','CSF.nii');
+Cere = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','SUIT.nii');
+Bone = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Bone.nii');
+Scalp = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Scalp.nii');
+Orbitals = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Orbitals.nii');
+Air = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Air.nii');
 
 spm_jobman('initcfg');
 
