@@ -1,15 +1,15 @@
 # TTFields-Workflow
 An SPM8 toolbox for automating MRIs to FEA models for TTFields
 
-## Installation and use
+### Installation and use
 Download the repo as a zip file and unzip into SPM8/toolbox
 Add the SPM8 path (addpath)
 TTFs is the primary function (triggers a prompt for selecting the DICOM directory to segment)
 
-## Optional function calls
+### Optional function calls
 pyScanIPScript and batScript, uncommented, can be used to generate ScanIP post-processing and initialization scripts, respectively
 
-## Dependencies
+### Dependencies
 Several dependencies are needed, and they have been included, but they are listed below along with their sources:
 
 ##### [Huang et al., 2013](http://bme.ccny.cuny.edu/faculty/lparra/autosegment/)
