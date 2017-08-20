@@ -126,6 +126,7 @@ end
 
 %Reorders based on proximity and sets their distance as 4th value
 adj_elec = zeros(36,4); row_ind = 1;
+warning('off','all')
 for i = 1:36
 [index, dist] = knnsearch(elec_list(i,:), elec_list, 3);
 dist = dist*spacing;
@@ -136,6 +137,7 @@ dist = dist*spacing;
         row_ind = row_ind + 3;
     end
 end
+warning('on','all')
 
 %Checks whether pairwise electrode seed points are the proper distance
 %apart (to within half a mm). Adjusts if not.
