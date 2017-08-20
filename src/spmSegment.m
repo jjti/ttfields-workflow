@@ -1,16 +1,16 @@
-function spmSegment(nii_Img)
+function spmSegment(tpmsPath, nii_Img)
 
 n = [1 0];
 w = [0 0];
 
-WM = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','WM.nii');
-GM = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','GM.nii');
-CSF = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','CSF.nii');
-Cere = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','SUIT.nii');
-Bone = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Bone.nii');
-Scalp = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Scalp.nii');
-Orbitals = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Orbitals.nii');
-Air = fullfile(spm('Dir'),'toolbox/TTFields-Workflow/tpms','Air.nii');
+WM = [tpmsPath filesep 'WM.nii'];
+GM = [tpmsPath filesep 'GM.nii'];
+CSF = [tpmsPath filesep 'CSF.nii'];
+Cere = [tpmsPath filesep 'SUIT.nii'];
+Bone = [tpmsPath filesep 'Bone.nii'];
+Scalp = [tpmsPath filesep 'Scalp.nii'];
+Orbitals = [tpmsPath filesep 'Orbitals.nii'];
+Air = [tpmsPath filesep 'Air.nii'];
 
 spm_jobman('initcfg');
 

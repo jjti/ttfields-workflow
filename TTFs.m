@@ -13,14 +13,15 @@ end
 img_Info = spmCoregistration(img_Path);
 
 % Segments the image using nii_for_seg.img in last step
-spmSegment('nii_for_seg.img');
+tpmsPath = [pwd filesep 'tpms'];
+spmSegment(tpmsPath, 'nii_for_seg.img');
 
 % Applies a modified binary mask generation workflow 
 postSegment(img_Loc);
 
 % Generates and places electrodes on the surface of the scalp
-TTF = fullfile(spm('Dir'),'toolbox/tpms','TTF.nii'); % TTField transducer seed coordinates
-electrodeGeneration('mask_scalp.img', TTF, 'iy_nii_for_seg.nii');
+elecSeeds = [pwd filesep 'tpms' filesep 'TTF.nii']; % TTField transducer seed coordinates
+electrodeGeneration('mask_scalp.img', elecSeeds, 'iy_nii_for_seg.nii');
 
 % Generates a python script for ScanIP import and smoothing
 % if uncommented, this would generate a python script that will
