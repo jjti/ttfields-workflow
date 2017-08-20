@@ -1,5 +1,11 @@
 function TTFs
 
+TTFsDir = fileparts(mfilename('fullpath')); % path to this script
+tpmsPath = [TTFsDir filesep 'tpms']; % path to tissue TPMs
+elecSeeds = [tpmsPath filesep 'TTF.nii']; % TTField transducer seed coordinates
+
+disp(tpmsPath);
+
 img_Path = spm_select;
 [img_Loc, ~, ~] = fileparts(img_Path(1,:));
 cd(img_Loc);
@@ -12,15 +18,14 @@ end
 % Coregister the padded image to a template
 img_Info = spmCoregistration(img_Path);
 
+disp(tpmsPath);
 % Segments the image using nii_for_seg.img in last step
-tpmsPath = [pwd filesep 'tpms'];
 spmSegment(tpmsPath, 'nii_for_seg.img');
 
 % Applies a modified binary mask generation workflow 
 postSegment(img_Loc);
 
 % Generates and places electrodes on the surface of the scalp
-elecSeeds = [pwd filesep 'tpms' filesep 'TTF.nii']; % TTField transducer seed coordinates
 electrodeGeneration('mask_scalp.img', elecSeeds, 'iy_nii_for_seg.nii');
 
 % Generates a python script for ScanIP import and smoothing
