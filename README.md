@@ -10,7 +10,7 @@ TTFs is the primary function (triggers a prompt for selecting the DICOM director
 pyScanIPScript and batScript, uncommented, can be used to generate ScanIP post-processing and initialization scripts, respectively
 
 ### Dependencies
-Several dependencies are needed, and they have been included, but they are listed below along with their sources:
+The dependencies have been included, but they are listed below along with their sources
 
 ##### [Huang et al., 2013](http://bme.ccny.cuny.edu/faculty/lparra/autosegment/)
 Y. Huang, J.P. Dmochowski, Y. Su, A. Datta, C. Rorden, L.C. Parra, Automated MRI Segmentation for Individualized Modeling of Current Flow in the Human Head, Journal of Neural Engineering, 10(6):066004, 2013.
