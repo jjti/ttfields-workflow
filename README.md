@@ -1,5 +1,5 @@
 # TTFields-Workflow
-An SPM8 toolbox for automating MRIs to FEA models for TTFields
+An [SPM8](http://www.fil.ion.ucl.ac.uk/spm/software/spm8/) toolbox for automating MRIs to FEA models for TTFields
 
 ### Installation and use
 1. Download the repo as a zip file and unzip into SPM8/toolbox (or elsewhere)
