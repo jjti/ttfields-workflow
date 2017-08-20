@@ -3,11 +3,10 @@ An [SPM8](http://www.fil.ion.ucl.ac.uk/spm/software/spm8/) toolbox for automatin
 
 ### Installation and use
 1. Download the repo as a zip file and unzip into SPM8/toolbox (or elsewhere)
-2. Rename to TTFields-Workflow (removing the branch name from the folder)
-3. Within MATLAB, add the SPM8 path if it has not been already; eg: "addpath('E:\spm8')"
-4. Add the path and subpaths of TTFields-Workflow; eg: "addpath(genpath('E:\spm8\toolbox\TTfields-Workflow'))"
-5. Type and enter "TTFs" in the MATLAB console
-6. Within the prompt, navigator to a DICOM directory for segmentation and select all images; ctrl-A then Enter
+2. Within MATLAB, add the SPM8 path if it has not been already; eg: "addpath('E:\spm8')"
+3. Add the path and subpaths of TTFields-Workflow; eg: "addpath(genpath('E:\spm8\toolbox\TTfields-Workflow-master'))"
+4. Type and enter "TTFs" in the MATLAB console
+5. Within the prompt, navigator to a DICOM directory for segmentation and select all images; ctrl-A then Enter then click "Done"
 
 ### Optional function calls
 pyScanIPScript and batScript, uncommented, can be used to generate ScanIP post-processing and initialization scripts, respectively
