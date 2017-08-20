@@ -1,6 +1,8 @@
 # TTFields-Workflow
 An [SPM8](http://www.fil.ion.ucl.ac.uk/spm/software/spm8/) toolbox for automating MRIs to FEA models for TTFields
 
+![masks](https://user-images.githubusercontent.com/13923102/29499076-2f11fe7a-85d7-11e7-86fa-85a92bfa3096.png)
+
 ### Installation and use
 1. Download the repo (Clone or download > Download ZIP) and unzip into SPM8/toolbox (or elsewhere)
 2. In MATLAB, add the SPM8 path
