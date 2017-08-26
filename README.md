@@ -1,5 +1,6 @@
 # TTFields-Workflow
 An [SPM8](http://www.fil.ion.ucl.ac.uk/spm/software/spm8/) toolbox for automating MRIs to FEA models for TTFields
+
 Takes a DICOM MRI directory as input and outpus binarized image masks for use in FEA mmesh generation.
 
 ![masks](https://user-images.githubusercontent.com/13923102/29499076-2f11fe7a-85d7-11e7-86fa-85a92bfa3096.png)
