@@ -24,7 +24,10 @@ pyScanIPScript and batScript, uncommented, can be used to generate ScanIP post-p
 We use them for speed/convenience
 
 ### Dependencies
-The dependencies have been included, but they are listed below along with their sources
+Most dependencies have been included, but they are listed below along with their sources
+
+##### [MATLAB Image Processing Toolbox](https://www.mathworks.com/products/image.html)
+Required but not included. Please see Mathworks.com
 
 ##### [Huang et al., 2013](http://bme.ccny.cuny.edu/faculty/lparra/autosegment/)
 Y. Huang, J.P. Dmochowski, Y. Su, A. Datta, C. Rorden, L.C. Parra, Automated MRI Segmentation for Individualized Modeling of Current Flow in the Human Head, Journal of Neural Engineering, 10(6):066004, 2013.
