@@ -3,7 +3,7 @@ An [SPM8](http://www.fil.ion.ucl.ac.uk/spm/software/spm8/) toolbox for automatin
 
 Takes a DICOM MRI directory as input and outpus binarized image masks for use in FEA mmesh generation.
 
-A more complete background and characterization of the workflow can be found at ![Joshua J Timmons et al 2017 Phys. Med. Biol. 62 8264](http://iopscience.iop.org/article/10.1088/1361-6560/aa87f3/meta;jsessionid=A43282614F03F3DB1C7ED4BA22FF0B1B.c4.iopscience.cld.iop.org)
+A more complete background and characterization of the workflow can be found at: ![Joshua J Timmons et al 2017 Phys. Med. Biol. 62 8264](http://iopscience.iop.org/article/10.1088/1361-6560/aa87f3/meta;jsessionid=A43282614F03F3DB1C7ED4BA22FF0B1B.c4.iopscience.cld.iop.org):
 
 ![masks](https://user-images.githubusercontent.com/13923102/29499076-2f11fe7a-85d7-11e7-86fa-85a92bfa3096.png)
 
