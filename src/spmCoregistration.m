@@ -22,6 +22,8 @@ spm_jobman('run',matlabbatch);
 evalc('reslice_nii(nii_Img, nii_Img)');
 rNii = load_nii(nii_Img);
 
+% Check how large the nifti is and downsize if too larges
+
 %Collect HDR information for Python script
 x_spc = rNii.hdr.dime.pixdim(2); 
 y_spc = rNii.hdr.dime.pixdim(3);
